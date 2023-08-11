@@ -1,0 +1,7 @@
+# Problem
+Within our AWS environment, there's an EC2 instance displaying elevated resource consumption and significant incoming and outgoing data traffic. Once these resource utilization levels spike, the instance becomes unresponsive. Rebooting the instance restores its functionality, but external access to its ports remains unavailable. The AWS team has investigated the matter but couldn't identify the root cause. We attempted to resolve the issue by restoring the instance from a recent snapshot and inspecting the logs, yet no conclusive findings emerged.
+
+A fresh instance operates smoothly for several days, after which the same problem resurfaces. My analysis suggests that the instance is compromised; I've already conducted malware removal and bolstered its security measures. Despite these efforts, I cannot guarantee against a recurrence. To proactively address this uncertainty, my intention is to implement comprehensive activity logging and configure email notifications to trigger whenever this issue resurfaces.
+
+# Solution
+I've developed a bash script that's designed to run at specific intervals through cron. This script's purpose is to keep an eye on the server load, and if the load increases, the script gathers relevant information. Subsequently, this information is transferred to a Python script responsible for sending out emails.
